@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
@@ -23,7 +24,80 @@ public class Category {
 	
 	@Column(name = "category_name")
 	private String categoryName;
-	
-	//Generate crosh after combine. 
-	
+
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Color getCategoryColor() {
+		return categoryColor;
+	}
+
+	public void setCategoryColor(Color categoryColor) {
+		this.categoryColor = categoryColor;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public Category(int categoryId, Color categoryColor, String categoryName) {
+		super();
+		this.categoryId = categoryId;
+		this.categoryColor = categoryColor;
+		this.categoryName = categoryName;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryColor=" + categoryColor + ", categoryName="
+				+ categoryName + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoryColor == null) ? 0 : categoryColor.hashCode());
+		result = prime * result + categoryId;
+		result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		if (categoryColor == null) {
+			if (other.categoryColor != null)
+				return false;
+		} else if (!categoryColor.equals(other.categoryColor))
+			return false;
+		if (categoryId != other.categoryId)
+			return false;
+		if (categoryName == null) {
+			if (other.categoryName != null)
+				return false;
+		} else if (!categoryName.equals(other.categoryName))
+			return false;
+		return true;
+	}
 }
