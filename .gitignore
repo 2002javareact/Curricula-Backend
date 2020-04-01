@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-.idea
+
 ### Addons
 .metadeta
 
@@ -34,3 +34,6 @@ build/
 .vscode/
 
 .env
+
+
+!**/.idea/**
