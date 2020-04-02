@@ -10,6 +10,12 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+//create
+//update
+//findall
+//delete
+
+
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
 public class Category {
