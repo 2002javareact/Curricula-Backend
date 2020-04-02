@@ -20,7 +20,7 @@ set schema 'P3';
        curriculum_name text
     );
     
-    create table curriculum_skills (
+    create table curriculum_skill (
        curriculum_id int not null references curriculum(curriculum_id),
        skill_id int not null references skill(skill_id)
     );
