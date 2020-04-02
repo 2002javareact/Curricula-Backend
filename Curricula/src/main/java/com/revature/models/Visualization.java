@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.awt.Color;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,7 +34,9 @@ public class Visualization {
 	}
 
 	public int getVisualizationId() {
+		
 		return visualizationId;
+		
 	}
 
 	public void setVisualizationId(int visualizationId) {
