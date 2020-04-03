@@ -6,12 +6,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
 public class Skill {
 
 	@Id
@@ -23,6 +23,7 @@ public class Skill {
 	private String skillName;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="category_id")
 	private Category category;
 
 	public Skill() {

@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
 public class Category {
 
 	@Id
@@ -20,7 +19,7 @@ public class Category {
 	private int categoryId;
 	
 	@Column(name = "category_color")
-	private Color categoryColor;
+	private String categoryColor;
 	
 	@Column(name = "category_name")
 	private String categoryName;
@@ -38,11 +37,11 @@ public class Category {
 		this.categoryId = categoryId;
 	}
 
-	public Color getCategoryColor() {
+	public String getCategoryColor() {
 		return categoryColor;
 	}
 
-	public void setCategoryColor(Color categoryColor) {
+	public void setCategoryColor(String categoryColor) {
 		this.categoryColor = categoryColor;
 	}
 
@@ -54,7 +53,7 @@ public class Category {
 		this.categoryName = categoryName;
 	}
 
-	public Category(int categoryId, Color categoryColor, String categoryName) {
+	public Category(int categoryId, String categoryColor, String categoryName) {
 		super();
 		this.categoryId = categoryId;
 		this.categoryColor = categoryColor;
