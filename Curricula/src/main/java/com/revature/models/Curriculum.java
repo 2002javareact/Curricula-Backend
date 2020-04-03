@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,6 +26,7 @@ public class Curriculum {
 	private String curriculumName;
 	
 	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="skill_id")
 	private List<Skill> skills;
 
 	public Curriculum() {
