@@ -14,7 +14,7 @@ public interface SkillServices {
 
 	Skill updateSkill(Skill s);
 
-	void deleteSkill(int id);
+	List<Skill> deleteSkill(int id);
 
 	Skill getBySkillId(int id);
 

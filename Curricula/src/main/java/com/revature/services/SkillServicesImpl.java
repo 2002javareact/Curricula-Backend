@@ -49,8 +49,9 @@ public class SkillServicesImpl implements SkillServices {
 	}
 	
 	@Override 
-	public void deleteSkill(int id){
+	public List<Skill> deleteSkill(int id){
 		sd.deleteById(id);
+		return sd.findAll();
 		
 	}
 

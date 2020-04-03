@@ -68,7 +68,10 @@ public class SkillControllers {
 	}
 	
 	@PostMapping({"delete"})
-	public void deleteSkill(@PathVariable int id) {
-		ss.deleteSkill(id);
+	public ResponseEntity<List<Skill>>deleteSkill(@PathVariable int id) {
+		if(id == 0) {
+			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity(ss.deleteSkill(id),HttpStatus.OK);
 	}
 }
