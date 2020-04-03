@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Skill;
 import com.revature.services.SkillService;
-//delete me needed to push code
+
 @RestController 
 @RequestMapping("skill")
 @CrossOrigin
