@@ -31,8 +31,8 @@ public class SkillServiceImpl implements SkillService {
 	}
 	
 	@Override
-	public Skill getSkillByCategoryId(int id) {
-		return sd.getOne(id);
+	public List<Skill> findByCategory_CategoryId(int id) {
+		return sd.findByCategory_CategoryId(id);
 	}
 	
 	@Override

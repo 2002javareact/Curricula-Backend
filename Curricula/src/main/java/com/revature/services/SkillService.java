@@ -10,9 +10,9 @@ public interface SkillService{
 
 	Skill saveNewSkill(Skill s);
 
-	Skill getSkillByCategoryId(int id);
-
 	Skill updateSkill(Skill s);
+
+	List<Skill> findByCategory_CategoryId(int id);
 	
 	
 
