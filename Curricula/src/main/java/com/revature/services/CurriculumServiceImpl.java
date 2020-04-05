@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.CurriculumDao;
+import com.revature.daos.CurriculumDao;
 import com.revature.models.Curriculum;
 
 @Service
