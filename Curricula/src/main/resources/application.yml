@@ -2,6 +2,16 @@
 #   Database Settings
 ###
 spring:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+    generate-ddl: false
   datasource:
     url: jdbc:h2:mem:Project3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     platform: h2
@@ -9,16 +19,6 @@ spring:
     password:
     driverClassName: org.h2.Driver
     initialization-mode: always
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: true
-        format_sql: true
-    generate-ddl: false
 
 ###
 #   H2 Settings

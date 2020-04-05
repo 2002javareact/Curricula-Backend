@@ -18,23 +18,23 @@ import com.revature.models.Skill;
 import com.revature.services.SkillServices;
 
 
-@RestController 
+@RestController
 @RequestMapping("skill")
 @CrossOrigin
 public class SkillControllers {
-	
+
 	private SkillServices ss;
-	
+
 	@Autowired
 	public SkillControllers(SkillServices ss) {
 		this.ss = ss;
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<Skill>>getAllSkill(){
 		return new ResponseEntity(ss.getAllSkill(),HttpStatus.OK);
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Skill>saveNewSkill(@RequestBody Skill s){
 		if(s.getSkillId() != 0) {
@@ -42,15 +42,15 @@ public class SkillControllers {
 		}
 	return new ResponseEntity<Skill>(ss.saveNewSkill(s), HttpStatus.OK);
 	}
-	
+
 	@GetMapping({"skillId"})
 	public ResponseEntity<Skill>getSkillById(@PathVariable int id){
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<Skill>(ss.getBySkillId(id),HttpStatus.OK);	
+		return new ResponseEntity<Skill>(ss.getBySkillId(id),HttpStatus.OK);
 	}
-	
+
 	@GetMapping({"categogyId"})
 	public ResponseEntity<List<Skill>>getSkillByCategoryId(@PathVariable int id){
 		if(id == 0) {
@@ -58,7 +58,7 @@ public class SkillControllers {
 		}
 		return new ResponseEntity(ss.getSkillByCategoryId(id),HttpStatus.OK);
 	}
-	
+
 	@PatchMapping
 	public ResponseEntity<Skill> updateSkill(@RequestBody Skill s){
 		if(s.getSkillId() == 0) {
@@ -66,7 +66,7 @@ public class SkillControllers {
 		}
 		return new ResponseEntity<Skill>(ss.updateSkill(s),HttpStatus.OK);
 	}
-	
+
 	@PostMapping({"delete"})
 	public ResponseEntity<List<Skill>>deleteSkill(@PathVariable int id) {
 		if(id == 0) {
