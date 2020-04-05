@@ -54,16 +54,10 @@ public class CurriculumServiceImpl implements CurriculumService{
 	}
 
 	@Override
-	public Integer deleteCurriculumById(int id) {
+	public Curriculum deleteCurriculumById(int id) {
 		// TODO Auto-generated method stub
-		try {
-			cd.deleteById(id);
-			return 1;
-		}
-		catch(Error e){
-			throw e;
-		}
-		
+		cd.deleteById(id);
+		return new Curriculum();
 	}
 	
 

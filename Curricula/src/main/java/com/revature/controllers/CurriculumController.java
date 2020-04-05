@@ -44,7 +44,7 @@ public class CurriculumController {
 		return new ResponseEntity<Curriculum>(cs.createCurriculum(nc),HttpStatus.CREATED);
 	}
 	
-	@GetMapping({"id"})
+	@GetMapping("{id}")
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity getCurriculumById(@PathVariable int id){
 		if(id == 0) {
@@ -65,7 +65,7 @@ public class CurriculumController {
 		if (id == 0) {
 			return new ResponseEntity<>("Id must not be 0",HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(cs.deleteCurriculumById(id),HttpStatus.NO_CONTENT);
+		return new ResponseEntity<Curriculum>(cs.deleteCurriculumById(id),HttpStatus.NO_CONTENT);
 	}
 	
 }
