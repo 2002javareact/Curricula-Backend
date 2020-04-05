@@ -18,7 +18,7 @@ public class Curriculum {
 	@Column(name="curriculum_name")
 	private String curriculumName;
 
-	@ManyToMany(cascade =  CascadeType.ALL)
+	@ManyToMany(cascade =  CascadeType.DETACH)
 	@JoinTable(
 		name = "curriculum_skill",
 		joinColumns = @JoinColumn(name = "curriculum_id"),
