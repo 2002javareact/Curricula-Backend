@@ -27,6 +27,7 @@ public class SkillControllers {
 	
 	@Autowired
 	public SkillControllers(SkillServices ss) {
+		super();
 		this.ss = ss;
 	}
 	
