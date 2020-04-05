@@ -2,9 +2,9 @@ package com.revature.models;
 
 import java.util.List;
 
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
