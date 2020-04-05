@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -24,6 +26,7 @@ public class Visualization {
 			name = "visualization_curriculum",
 			joinColumns = @JoinColumn(name = "visualization_id"),
 			inverseJoinColumns = @JoinColumn(name = "curriculum_id"))
+	@Fetch(value= FetchMode.SUBSELECT)
 	private List<Curriculum> curriculum;
 
 	public Visualization() {
