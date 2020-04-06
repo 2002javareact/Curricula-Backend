@@ -8,15 +8,17 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+    initialization-mode: always
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         show_sql: true
         use_sql_comments: true
         format_sql: true
+    generate-ddl: false
 
 ###
 #   H2 Settings
