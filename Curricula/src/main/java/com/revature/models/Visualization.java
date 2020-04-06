@@ -3,16 +3,11 @@ package com.revature.models;
 import java.awt.Color;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -26,8 +21,12 @@ public class Visualization {
 	@Column(name = "visualization_name")
 	private String visualizationName;
 
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="curriculum_id")
+	@ManyToMany
+	@JoinTable(
+			name = "visualization_curriculum",
+			joinColumns = @JoinColumn(name = "visualization_id"),
+			inverseJoinColumns = @JoinColumn(name = "curriculum_id"))
+	@Fetch(value= FetchMode.SUBSELECT)
 	private List<Curriculum> curriculum;
 
 	public Visualization() {

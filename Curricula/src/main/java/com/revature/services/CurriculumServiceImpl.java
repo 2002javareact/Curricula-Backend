@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.daos.CurriculumDao;
 import com.revature.models.Curriculum;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CurriculumServiceImpl implements CurriculumService{
@@ -33,6 +34,7 @@ public class CurriculumServiceImpl implements CurriculumService{
 	}
 
 	@Override
+	@Transactional
 	public Curriculum updateCurriculum(Curriculum newCurriculum) {
 		// TODO Auto-generated method stub
 		Curriculum oldCurriculum = cd.getOne(newCurriculum.getCurriculumId());
@@ -52,16 +54,10 @@ public class CurriculumServiceImpl implements CurriculumService{
 	}
 
 	@Override
-	public Integer deleteCurriculumById(int id) {
+	public Curriculum deleteCurriculumById(int id) {
 		// TODO Auto-generated method stub
-		try {
-			cd.deleteById(id);
-			return 1;
-		}
-		catch(Error e){
-			throw e;
-		}
-		
+		cd.deleteById(id);
+		return new Curriculum();
 	}
 	
 

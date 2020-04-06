@@ -2,15 +2,9 @@ package com.revature.models;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
@@ -23,9 +17,12 @@ public class Curriculum {
 	
 	@Column(name="curriculum_name")
 	private String curriculumName;
-	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name="skill_id")
+
+	@ManyToMany(cascade =  CascadeType.DETACH)
+	@JoinTable(
+		name = "curriculum_skill",
+		joinColumns = @JoinColumn(name = "curriculum_id"),
+		inverseJoinColumns = @JoinColumn(name = "skill_id"))
 	private List<Skill> skills;
 
 	public Curriculum() {

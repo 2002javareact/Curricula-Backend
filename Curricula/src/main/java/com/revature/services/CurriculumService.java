@@ -13,5 +13,5 @@ public interface CurriculumService{
 	public List<Curriculum> getAllCurriculum();
 	public Curriculum updateCurriculum(Curriculum cm);
 	public Curriculum createCurriculum(Curriculum cm);
-	public Integer deleteCurriculumById(int id); 
+	public Curriculum deleteCurriculumById(int id);
 }

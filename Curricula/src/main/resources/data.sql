@@ -32,6 +32,7 @@ insert into "CURRICULUM"(CURRICULUM_NAME)
 insert into "VISUALIZATION"(VISUALIZATION_NAME)
   values('INITIAL DATA');
 
+COMMIT;
 -------------------------------------------------------------------------------------
 
 --COMBINED TABLE INSERTS

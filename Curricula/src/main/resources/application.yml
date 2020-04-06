@@ -2,13 +2,6 @@
 #   Database Settings
 ###
 spring:
-  datasource:
-    url: jdbc:h2:mem:Project3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    platform: h2
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-    initialization-mode: always
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -19,6 +12,13 @@ spring:
         use_sql_comments: true
         format_sql: true
     generate-ddl: false
+  datasource:
+    url: jdbc:h2:mem:Project3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    initialization-mode: always
 
 ###
 #   H2 Settings

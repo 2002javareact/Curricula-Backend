@@ -7,5 +7,4 @@ import com.revature.models.Curriculum;
 
 @Repository
 public interface CurriculumDao extends JpaRepository<Curriculum,Integer> {
-
 }
