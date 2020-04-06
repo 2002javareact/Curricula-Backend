@@ -30,4 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
-target
+target/
+.settings/
+.project
