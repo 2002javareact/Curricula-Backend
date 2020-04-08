@@ -1,8 +1,3 @@
-drop schema if exists P3 cascade;
-
-create schema P3;
-set schema 'P3';
-
    create table category (
        category_id serial primary key,
        category_color text,
