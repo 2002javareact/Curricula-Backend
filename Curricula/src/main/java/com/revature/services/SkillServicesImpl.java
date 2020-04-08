@@ -5,10 +5,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.SkillDao;
 import com.revature.models.Skill;
 
+@Service
 public class SkillServicesImpl implements SkillServices {
 	
 	private SkillDao sd;
@@ -50,7 +52,8 @@ public class SkillServicesImpl implements SkillServices {
 	
 	@Override 
 	public List<Skill> deleteSkill(int id){
-		sd.deleteById(id);
+		Skill s = sd.getOne(id);
+		sd.delete(s);
 		return sd.findAll();
 		
 	}

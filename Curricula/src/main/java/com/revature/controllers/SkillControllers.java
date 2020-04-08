@@ -43,7 +43,7 @@ public class SkillControllers {
 	return new ResponseEntity<Skill>(ss.saveNewSkill(s), HttpStatus.OK);
 	}
 	
-	@GetMapping({"skillId"})
+	@GetMapping({"skill/{id}"})
 	public ResponseEntity<Skill>getSkillById(@PathVariable int id){
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
@@ -51,7 +51,7 @@ public class SkillControllers {
 		return new ResponseEntity<Skill>(ss.getBySkillId(id),HttpStatus.OK);	
 	}
 	
-	@GetMapping({"categogyId"})
+	@GetMapping({"categogy/{id}"})
 	public ResponseEntity<List<Skill>>getSkillByCategoryId(@PathVariable int id){
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
@@ -67,7 +67,7 @@ public class SkillControllers {
 		return new ResponseEntity<Skill>(ss.updateSkill(s),HttpStatus.OK);
 	}
 	
-	@PostMapping({"delete"})
+	@PostMapping({"delete/{id}"})
 	public ResponseEntity<List<Skill>>deleteSkill(@PathVariable int id) {
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
