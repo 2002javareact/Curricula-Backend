@@ -1,5 +1,5 @@
 package com.revature.services;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.daos.SkillDao;
 import com.revature.models.Skill;
+import com.revature.models.Category;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -47,6 +48,8 @@ public class SkillServicesImpl implements SkillServices {
 		Skill oldSkill = sd.getOne(s.getSkillId());
 		if(s.getSkillName() != "")
 			oldSkill.setSkillName(s.getSkillName());
+		if(s.getCategory() != null)
+			oldSkill.setCategory(s.getCategory());
 		
 		return oldSkill;
 	}
@@ -54,8 +57,7 @@ public class SkillServicesImpl implements SkillServices {
 	@Override 
 	public List<Skill> deleteSkill(int id){
 		sd.deleteById(id);
-		return sd.findAll();
-		
+		return sd.findAll();		
 	}
 
 	
