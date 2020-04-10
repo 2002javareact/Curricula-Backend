@@ -48,7 +48,7 @@ public class SkillServicesImpl implements SkillServices {
 		Skill oldSkill = sd.getOne(s.getSkillId());
 		if(s.getSkillName() != "")
 			oldSkill.setSkillName(s.getSkillName());
-		if(s.getCategory() != null)
+		if(s.getCategory().getCategoryId() != 0)
 			oldSkill.setCategory(s.getCategory());
 		
 		return oldSkill;
