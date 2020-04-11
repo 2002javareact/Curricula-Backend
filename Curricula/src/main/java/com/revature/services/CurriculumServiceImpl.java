@@ -38,11 +38,11 @@ public class CurriculumServiceImpl implements CurriculumService{
 	public Curriculum updateCurriculum(Curriculum newCurriculum) {
 		// TODO Auto-generated method stub
 		Curriculum oldCurriculum = cd.getOne(newCurriculum.getCurriculumId());
-		if(newCurriculum.getCurriculumName().equals("")) {
+		if(!newCurriculum.getCurriculumName().equals("")) {
 			oldCurriculum.setCurriculumName(newCurriculum.getCurriculumName());
 		}
 		if(newCurriculum.getSkills().size() != 0) {
-			//oldCurriculum.setCurriculum
+			oldCurriculum.setSkills(newCurriculum.getSkills());
 		}
 		return oldCurriculum;
 	}
