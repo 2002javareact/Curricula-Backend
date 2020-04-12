@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.revature.models.Visualization;
 
+/*
+ * interfaced used by the serviceImpl
+ */
+
 public interface VisualizationService {
 
 	public Visualization getVisualizationById(int id);

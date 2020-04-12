@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import com.revature.daos.VisualizationDao;
 import com.revature.models.Visualization;
 
+/*
+ * Implementations for the service of Visualization request
+ */
+
 @Service
 public class VisualizationServiceImpl implements VisualizationService {
 
@@ -20,22 +24,27 @@ public class VisualizationServiceImpl implements VisualizationService {
 		this.vd = vd;
 	}
 
+	//Get one Visualization
 	@Override
 	public Visualization getVisualizationById(int id) {
 		return vd.getOne(id);
 	}
 
+	//Get all Visualizations
 	@Override
 	public List<Visualization> getAllVisualizations() {
 		return vd.findAll();
 	}
 
+	/*Update a Visualization. Checks for empty sting and if the array of curriculums are different
+	* If they array is the same size it checks the elements in the array, if they have a different id values they are overwritten
+	*/
 	@Override
 	@Transactional
 	public Visualization updateVisualization(Visualization v) {
 		Visualization oldVisualization = vd.getOne(v.getVisualizationId());
-		//This Check might need updating after front end integration to .equals("")
-		if (v.getVisualizationName() != "") {
+		
+		if (!v.getVisualizationName().equals("")) {
 			oldVisualization.setVisualizationName(v.getVisualizationName());
 		}		
 		if (oldVisualization.getCurriculum().size() > v.getCurriculum().size()
@@ -50,15 +59,16 @@ public class VisualizationServiceImpl implements VisualizationService {
 
 			}
 		}
-		return oldVisualization;
-		
+		return oldVisualization;		
 	}
 
+	//Creates a new Visualization
 	@Override
 	public Visualization createVisualization(Visualization v) {
 		return vd.save(v);
 	}
 
+	//Deletes a Visualization (not implemented on Front End)
 	@Override
 	public Visualization deleteVisualizationById(int id) {
 		vd.deleteById(id);

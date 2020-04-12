@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.Visualization;
 import com.revature.services.VisualizationService;
 
+
+/*
+****
+* This class takes in request and calls the appropriate service implementation. It returns the 
+* service response with the appropriate HTTP response
+****
+*/
 @RestController
 @RequestMapping("visualization")
 public class VisualizationController {
