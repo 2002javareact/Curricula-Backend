@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("category")
 public class CategoryController {
@@ -25,11 +24,11 @@ public class CategoryController {
 
     @Autowired
     public CategoryController(CategoryService cs) {
-		this.cs = cs;
+        this.cs = cs;
     }
-    
+
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategory(){
+    public ResponseEntity<List<Category>> getAllCategory() {
         return new ResponseEntity(cs.getAllCategories(), HttpStatus.OK);
     }
 
@@ -42,29 +41,28 @@ public class CategoryController {
     }
 
     @PatchMapping
-    public ResponseEntity<Category> updateCategory(Category c){
-        if(c.getCategoryId()==0){
+    public ResponseEntity<Category> updateCategory(@RequestBody Category c) {
+        if (c.getCategoryId() == 0) {
             return new ResponseEntity("Category id must not be 0", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity(cs.updateCategory(c), HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Category> deleteCategory(@PathVariable int id){
-        if(id == 0){
+    public ResponseEntity<Category> deleteCategory(@PathVariable int id) {
+        if (id == 0) {
             return new ResponseEntity("Category id must not be 0", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity(cs.deleteCategory(id), HttpStatus.CREATED);
     }
-    
 
     // @GetMapping("{id}")
     // public ResponseEntity<Category> getCategoryById(@PathVariable int id){
-    //     if(id == 0){
-    //         return new ResponseEntity("Category id must not be 0", HttpStatus.BAD_REQUEST);
-    //     }
-    //     return new ResponseEntity(cs.getCategoryById(id), HttpStatus.CREATED)
+    // if(id == 0){
+    // return new ResponseEntity("Category id must not be 0",
+    // HttpStatus.BAD_REQUEST);
     // }
-    
+    // return new ResponseEntity(cs.getCategoryById(id), HttpStatus.CREATED)
+    // }
 
 }

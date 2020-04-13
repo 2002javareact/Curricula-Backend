@@ -7,7 +7,7 @@
     create table skill (
        skill_id serial primary key,
         skill_name text,
-        category_id int references category(category_id)
+        category_id int references category(category_id) on delete cascade
     );
 
     create table curriculum (
@@ -16,8 +16,8 @@
     );
 
     create table curriculum_skill (
-       curriculum_id int not null references curriculum(curriculum_id),
-       skill_id int not null references skill(skill_id)
+       curriculum_id int not null references curriculum(curriculum_id) on delete cascade,
+       skill_id int not null references skill(skill_id) on delete cascade
     );
 
     create table visualization (
@@ -26,6 +26,6 @@
     );
 
     create table visualization_curriculum (
-       visualization_id int not null references visualization(visualization_id),
-       curriculum_id int not null references curriculum(curriculum_id)
+       visualization_id int not null references visualization(visualization_id) on delete cascade,
+       curriculum_id int not null references curriculum(curriculum_id) on delete cascade
     );

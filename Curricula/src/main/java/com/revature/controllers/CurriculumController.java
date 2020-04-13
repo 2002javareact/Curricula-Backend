@@ -38,6 +38,7 @@ public class CurriculumController {
 	@PostMapping
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity createNewCurriculum(@RequestBody Curriculum nc) {
+		System.out.println("###################" + nc.getCurriculumName());
 		if(nc.getCurriculumId() != 0 ) {
 			return new ResponseEntity<>("Id must not be 0", HttpStatus.BAD_REQUEST);
 		}
@@ -59,9 +60,9 @@ public class CurriculumController {
 		return new ResponseEntity<Curriculum>(cs.updateCurriculum(curriculum),HttpStatus.OK);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("{id}")
 	@SuppressWarnings("rawtypes")
-	public ResponseEntity deleteCurriculum(@RequestBody int id) {
+	public ResponseEntity deleteCurriculum(@PathVariable int id) {
 		if (id == 0) {
 			return new ResponseEntity<>("Id must not be 0",HttpStatus.BAD_REQUEST);
 		}
