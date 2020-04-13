@@ -1,11 +1,11 @@
 -- Category inserts
 insert into "CATEGORY"(CATEGORY_COLOR,CATEGORY_NAME)
-  values('#311885','DATABASE'),
-  ('#26539f','SOURCE CODE'),
-  ('#317ee6','FRAMEWORK'),
-  ('#00dbd5','IDE'),
-  ('#00d2a2','DEVOPS'),
-  ('#009688','ARCHITECTURE');
+  values('#056ec4','DATABASE'),
+  ('#631c1c','SOURCE CODE'),
+  ('#a82f9a','FRAMEWORK'),
+  ('#d1122c','IDE'),
+  ('#37c6b3','DEVOPS'),
+  ('#020284','ARCHITECTURE');
 
 -- Skill inserts
 insert into "SKILL"(SKILL_NAME,CATEGORY_ID)
