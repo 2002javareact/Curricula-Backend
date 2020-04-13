@@ -38,6 +38,7 @@ public class CurriculumController {
 	@PostMapping
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity createNewCurriculum(@RequestBody Curriculum nc) {
+		System.out.println("###################" + nc.getCurriculumName());
 		if(nc.getCurriculumId() != 0 ) {
 			return new ResponseEntity<>("Id must not be 0", HttpStatus.BAD_REQUEST);
 		}

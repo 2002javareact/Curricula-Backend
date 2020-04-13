@@ -52,7 +52,7 @@ public class SkillControllers {
 		return new ResponseEntity<Skill>(ss.getBySkillId(id),HttpStatus.OK);
 	}
 
-	@GetMapping({"categoryId"})
+	@GetMapping({"categoryId/{id}"})
 	public ResponseEntity<List<Skill>>getSkillByCategoryId(@PathVariable int id){
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
@@ -62,9 +62,6 @@ public class SkillControllers {
 
 	@PatchMapping
 	public ResponseEntity<Skill> updateSkill(@RequestBody Skill s){
-		if(s.getSkillId() == 0) {
-			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
-		}
 		return new ResponseEntity<Skill>(ss.updateSkill(s),HttpStatus.OK);
 	}
 
