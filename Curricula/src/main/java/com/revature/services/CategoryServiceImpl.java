@@ -7,54 +7,56 @@ import com.revature.models.Category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
-    
+public class CategoryServiceImpl implements CategoryService {
+
     private CategoryDao cd;
-    
+
     @Autowired
-    public CategoryServiceImpl(CategoryDao cd){
+    public CategoryServiceImpl(CategoryDao cd) {
         this.cd = cd;
     }
 
     @Override
-    public List<Category> getAllCategories(){
+    public List<Category> getAllCategories() {
         return cd.findAll();
     }
-/**
- * Sort method:Dzimtry
- * @Override
-	public List<Users> getAllUsers() {
-		return ud.findAll(Sort.by(Sort.Direction.ASC, "userId")); //Sorted By userId asc
-	}
- * 
- */
+
+    /**
+     * Sort method:Dzimtry
+     * 
+     * @Override public List<Users> getAllUsers() { return
+     *           ud.findAll(Sort.by(Sort.Direction.ASC, "userId")); //Sorted By
+     *           userId asc }
+     * 
+     */
     @Override
-    public Category saveNewCategory(Category c){
+    public Category saveNewCategory(Category c) {
         return cd.save(c);
     }
 
     // @Override
     // public Category getCategoryById(int id){
-    //     return cd.getOne(id);
+    // return cd.getOne(id);
     // }
 
     @Override
-    public Category updateCategory(Category c){
+    @Transactional
+    public Category updateCategory(Category c) {
         Category oldC = cd.getOne(c.getCategoryId());
-        if(c.getCategoryColor() != null){
+        if (c.getCategoryColor() != null) {
             oldC.setCategoryColor(c.getCategoryColor());
         }
-        if(c.getCategoryName()!= null){
+        if (c.getCategoryName() != null) {
             oldC.setCategoryName(c.getCategoryName());
         }
         return oldC;
     }
 
     @Override
-    public Category deleteCategory(int id){
+    public Category deleteCategory(int id) {
         Category oldC = cd.getOne(id);
         cd.deleteById(id);
         return oldC;
