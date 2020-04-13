@@ -35,15 +35,13 @@ public class VisualizationServiceImpl implements VisualizationService {
 	public Visualization updateVisualization(Visualization v) {
 		Visualization oldVisualization = vd.getOne(v.getVisualizationId());
 		//This Check might need updating after front end integration to .equals("")
-		if (v.getVisualizationName() != null) {
+		if (v.getVisualizationName() != "") {
 			oldVisualization.setVisualizationName(v.getVisualizationName());
-		}	
-		
-		if(v.getCurriculum() == null){
-			
-		}else if (oldVisualization.getCurriculum().size() > v.getCurriculum().size()
+
+		}		
+		if (oldVisualization.getCurriculum().size() > v.getCurriculum().size()
 				|| oldVisualization.getCurriculum().size() < v.getCurriculum().size()) {
-			oldVisualization.setCurriculum(null);
+
 			oldVisualization.setCurriculum(v.getCurriculum());
 		}else {
 			for (int i = 0; i < v.getCurriculum().size(); i++) {
@@ -55,7 +53,6 @@ public class VisualizationServiceImpl implements VisualizationService {
 			}
 		}
 		return oldVisualization;
-		
 	}
 
 	@Override
