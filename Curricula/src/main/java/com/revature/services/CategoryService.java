@@ -8,5 +8,5 @@ public interface CategoryService {
     public Category saveNewCategory(Category c);
     // public Category getCategoryById(int id);
     public Category updateCategory(Category c);
-    public Category deleteCategory(int id);
+    public void deleteCategory(int id);
 }

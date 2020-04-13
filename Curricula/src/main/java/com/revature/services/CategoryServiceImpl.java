@@ -54,12 +54,14 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return oldC;
     }
+    
 
     @Override
-    public Category deleteCategory(int id) {
+    public void deleteCategory(int id){
         Category oldC = cd.getOne(id);
         cd.deleteById(id);
-        return oldC;
+       
     }
+
 
 }
