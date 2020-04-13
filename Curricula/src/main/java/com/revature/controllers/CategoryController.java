@@ -34,7 +34,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> saveNewCategory(Category c){
+    public ResponseEntity<Category> saveNewCategory(@RequestBody Category c){
         if(c.getCategoryId()!=0){
             return new ResponseEntity("Id must be 0", HttpStatus.BAD_REQUEST);
         }
