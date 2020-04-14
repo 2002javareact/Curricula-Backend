@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,7 +66,7 @@ public class SkillControllers {
 		return new ResponseEntity<Skill>(ss.updateSkill(s),HttpStatus.OK);
 	}
 
-	@PostMapping("{id}")
+	@DeleteMapping("{id}")
 	public ResponseEntity<List<Skill>>deleteSkill(@PathVariable int id) {
 		if(id == 0) {
 			return new ResponseEntity("Id must not be 0",HttpStatus.BAD_REQUEST);
