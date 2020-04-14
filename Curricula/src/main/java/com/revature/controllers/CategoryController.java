@@ -49,12 +49,14 @@ public class CategoryController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Category> deleteCategory(@PathVariable int id) {
-        if (id == 0) {
-            return new ResponseEntity("Category id must not be 0", HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity(cs.deleteCategory(id), HttpStatus.CREATED);
-    }
+    public  ResponseEntity<Object> deleteCategory(@PathVariable int id){    	
+    	  cs.deleteCategory(id);
+    	  return new ResponseEntity( HttpStatus.OK);  	
+    	
+        
+    }  //deleteCategory(@PathVariable int id)
+    
+    
 
     // @GetMapping("{id}")
     // public ResponseEntity<Category> getCategoryById(@PathVariable int id){
