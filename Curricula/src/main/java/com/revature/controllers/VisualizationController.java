@@ -41,8 +41,9 @@ public class VisualizationController {
 
 	/**
 	 * Gets all visualizations.
-	 *
-	 * @return the all visualizations
+	 * 
+	 * @param none
+	 * @return all visualizations from Database
 	 */
 	@GetMapping
 	public ResponseEntity getAllVisualizations() {
@@ -52,7 +53,7 @@ public class VisualizationController {
 	/**
 	 * Gets visualization by id.
 	 *
-	 * @param id the id
+	 * @param id of the visualization
 	 * @return the visualization by id
 	 */
 	@GetMapping("{id}")
@@ -66,8 +67,8 @@ public class VisualizationController {
 	/**
 	 * Update visualization response entity.
 	 *
-	 * @param visualization the visualization
-	 * @return the response entity
+	 * @param visualization that is to be updated
+	 * @return the response entity and the updated Visualization
 	 */
 	@PatchMapping
 	public ResponseEntity updateVisualization(@RequestBody Visualization visualization) {
@@ -77,8 +78,8 @@ public class VisualizationController {
 	/**
 	 * Create visualization response entity.
 	 *
-	 * @param visualization the visualization
-	 * @return the response entity
+	 * @param visualization that is to be created
+	 * @return the response entity and the New Visualization
 	 */
 	@PostMapping
 	public ResponseEntity createVisualization(@RequestBody Visualization visualization) {
@@ -86,10 +87,10 @@ public class VisualizationController {
 	}
 
 	/**
-	 * Delete visualization by id response entity.
+	 * Delete visualization by id.
 	 *
-	 * @param id the id
-	 * @return the response entity
+	 * @param id of the Visualization
+	 * @return the response entity and default Visualization
 	 */
 	@DeleteMapping("{id}")
 	public ResponseEntity deleteVisualizationById (@PathVariable int id) {
