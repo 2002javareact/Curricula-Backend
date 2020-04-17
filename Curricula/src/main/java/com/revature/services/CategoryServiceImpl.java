@@ -9,11 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * The type Category service.
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
     private CategoryDao cd;
 
+    /**
+     * Instantiates a new Category service.
+     *
+     * @param cd the cd
+     */
     @Autowired
     public CategoryServiceImpl(CategoryDao cd) {
         this.cd = cd;

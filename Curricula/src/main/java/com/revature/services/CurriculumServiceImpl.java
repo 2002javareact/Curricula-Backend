@@ -9,11 +9,22 @@ import com.revature.daos.CurriculumDao;
 import com.revature.models.Curriculum;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * The type Curriculum service.
+ */
 @Service
 public class CurriculumServiceImpl implements CurriculumService{
 
-	CurriculumDao cd; 
-	
+	/**
+	 * The Cd.
+	 */
+	CurriculumDao cd;
+
+	/**
+	 * Instantiates a new Curriculum service.
+	 *
+	 * @param cd the cd
+	 */
 	@Autowired
 	public CurriculumServiceImpl(CurriculumDao cd) {
 		this.cd = cd; 
