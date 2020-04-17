@@ -16,6 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //delete
 
 
+/**
+ * The type Category.
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Category {
@@ -31,35 +34,75 @@ public class Category {
 	@Column(name = "category_name")
 	private String categoryName;
 
+	/**
+	 * Instantiates a new Category.
+	 */
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Gets category id.
+	 *
+	 * @return the category id
+	 */
 	public int getCategoryId() {
 		return categoryId;
 	}
 
+	/**
+	 * Sets category id.
+	 *
+	 * @param categoryId the category id
+	 */
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
+	/**
+	 * Gets category color.
+	 *
+	 * @return the category color
+	 */
 	public String getCategoryColor() {
 		return categoryColor;
 	}
 
+	/**
+	 * Sets category color.
+	 *
+	 * @param categoryColor the category color
+	 */
 	public void setCategoryColor(String categoryColor) {
 		this.categoryColor = categoryColor;
 	}
 
+	/**
+	 * Gets category name.
+	 *
+	 * @return the category name
+	 */
 	public String getCategoryName() {
 		return categoryName;
 	}
 
+	/**
+	 * Sets category name.
+	 *
+	 * @param categoryName the category name
+	 */
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
 
+	/**
+	 * Instantiates a new Category.
+	 *
+	 * @param categoryId    the category id
+	 * @param categoryColor the category color
+	 * @param categoryName  the category name
+	 */
 	public Category(int categoryId, String categoryColor, String categoryName) {
 		super();
 		this.categoryId = categoryId;

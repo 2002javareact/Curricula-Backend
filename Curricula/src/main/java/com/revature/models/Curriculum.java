@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+/**
+ * The type Curriculum.
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})// put this on all of your entities
 public class Curriculum {
@@ -25,35 +28,75 @@ public class Curriculum {
 		inverseJoinColumns = @JoinColumn(name = "skill_id"))
 	private List<Skill> skills;
 
+	/**
+	 * Instantiates a new Curriculum.
+	 */
 	public Curriculum() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Gets curriculum id.
+	 *
+	 * @return the curriculum id
+	 */
 	public int getCurriculumId() {
 		return curriculumId;
 	}
 
+	/**
+	 * Sets curriculum id.
+	 *
+	 * @param curriculumId the curriculum id
+	 */
 	public void setCurriculumId(int curriculumId) {
 		this.curriculumId = curriculumId;
 	}
 
+	/**
+	 * Gets curriculum name.
+	 *
+	 * @return the curriculum name
+	 */
 	public String getCurriculumName() {
 		return curriculumName;
 	}
 
+	/**
+	 * Sets curriculum name.
+	 *
+	 * @param curriculumName the curriculum name
+	 */
 	public void setCurriculumName(String curriculumName) {
 		this.curriculumName = curriculumName;
 	}
 
+	/**
+	 * Gets skills.
+	 *
+	 * @return the skills
+	 */
 	public List<Skill> getSkills() {
 		return skills;
 	}
 
+	/**
+	 * Sets skills.
+	 *
+	 * @param skills the skills
+	 */
 	public void setSkills(List<Skill> skills) {
 		this.skills = skills;
 	}
 
+	/**
+	 * Instantiates a new Curriculum.
+	 *
+	 * @param curriculumId   the curriculum id
+	 * @param curriculumName the curriculum name
+	 * @param skills         the skills
+	 */
 	public Curriculum(int curriculumId, String curriculumName, List<Skill> skills) {
 		super();
 		this.curriculumId = curriculumId;

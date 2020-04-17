@@ -10,11 +10,22 @@ import org.springframework.stereotype.Service;
 import com.revature.daos.VisualizationDao;
 import com.revature.models.Visualization;
 
+/**
+ * The type Visualization service.
+ */
 @Service
 public class VisualizationServiceImpl implements VisualizationService {
 
+	/**
+	 * The Vd.
+	 */
 	VisualizationDao vd;
 
+	/**
+	 * Instantiates a new Visualization service.
+	 *
+	 * @param vd the vd
+	 */
 	@Autowired
 	public VisualizationServiceImpl(VisualizationDao vd) {
 		this.vd = vd;

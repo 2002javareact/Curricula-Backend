@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+/**
+ * The type Visualization.
+ */
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Visualization {
@@ -29,37 +32,77 @@ public class Visualization {
 	@Fetch(value= FetchMode.SUBSELECT)
 	private List<Curriculum> curriculum;
 
+	/**
+	 * Instantiates a new Visualization.
+	 */
 	public Visualization() {
 		super();
 
 	}
 
+	/**
+	 * Gets visualization id.
+	 *
+	 * @return the visualization id
+	 */
 	public int getVisualizationId() {
 
 		return visualizationId;
 
 	}
 
+	/**
+	 * Sets visualization id.
+	 *
+	 * @param visualizationId the visualization id
+	 */
 	public void setVisualizationId(int visualizationId) {
 		this.visualizationId = visualizationId;
 	}
 
+	/**
+	 * Gets visualization name.
+	 *
+	 * @return the visualization name
+	 */
 	public String getVisualizationName() {
 		return visualizationName;
 	}
 
+	/**
+	 * Sets visualization name.
+	 *
+	 * @param visualizationName the visualization name
+	 */
 	public void setVisualizationName(String visualizationName) {
 		this.visualizationName = visualizationName;
 	}
 
+	/**
+	 * Gets curriculum.
+	 *
+	 * @return the curriculum
+	 */
 	public List<Curriculum> getCurriculum() {
 		return curriculum;
 	}
 
+	/**
+	 * Sets curriculum.
+	 *
+	 * @param curriculum the curriculum
+	 */
 	public void setCurriculum(List<Curriculum> curriculum) {
 		this.curriculum = curriculum;
 	}
 
+	/**
+	 * Instantiates a new Visualization.
+	 *
+	 * @param visualizationId   the visualization id
+	 * @param visualizationName the visualization name
+	 * @param curriculum        the curriculum
+	 */
 	public Visualization(int visualizationId, String visualizationName, List<Curriculum> curriculum) {
 		super();
 		this.visualizationId = visualizationId;
