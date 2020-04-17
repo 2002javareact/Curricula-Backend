@@ -55,8 +55,8 @@ public class VisualizationController {
 	}
 	
 	
-	@DeleteMapping
-	public ResponseEntity deleteVisualizationById (@RequestBody int id) {
+	@DeleteMapping("{id}")
+	public ResponseEntity deleteVisualizationById (@PathVariable int id) {
 		if(id == 0 ) {
 			return new ResponseEntity<>("Id must not be 0", HttpStatus.BAD_REQUEST);
 		}
