@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The type Skill.
+ */
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Skill {
@@ -27,35 +30,75 @@ public class Skill {
 	@JoinColumn(name="category_id")
 	private Category category;
 
+	/**
+	 * Instantiates a new Skill.
+	 */
 	public Skill() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Gets skill id.
+	 *
+	 * @return the skill id
+	 */
 	public int getSkillId() {
 		return skillId;
 	}
 
+	/**
+	 * Sets skill id.
+	 *
+	 * @param skillId the skill id
+	 */
 	public void setSkillId(int skillId) {
 		this.skillId = skillId;
 	}
 
+	/**
+	 * Gets skill name.
+	 *
+	 * @return the skill name
+	 */
 	public String getSkillName() {
 		return skillName;
 	}
 
+	/**
+	 * Sets skill name.
+	 *
+	 * @param skillName the skill name
+	 */
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
 	}
 
+	/**
+	 * Gets category.
+	 *
+	 * @return the category
+	 */
 	public Category getCategory() {
 		return category;
 	}
 
+	/**
+	 * Sets category.
+	 *
+	 * @param category the category
+	 */
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
+	/**
+	 * Instantiates a new Skill.
+	 *
+	 * @param skillId   the skill id
+	 * @param skillName the skill name
+	 * @param category  the category
+	 */
 	public Skill(int skillId, String skillName, Category category) {
 		super();
 		this.skillId = skillId;

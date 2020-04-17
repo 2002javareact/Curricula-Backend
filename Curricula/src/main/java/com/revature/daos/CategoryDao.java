@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Category;
 
+/**
+ * The interface Category dao.
+ */
 @Repository
 public interface CategoryDao extends JpaRepository<Category, Integer> {
 

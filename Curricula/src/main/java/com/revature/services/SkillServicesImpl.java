@@ -12,11 +12,19 @@ import com.revature.models.Skill;
 import com.revature.models.Category;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type Skill services.
+ */
 @Service
 public class SkillServicesImpl implements SkillServices {
 	
 	private SkillDao sd;
-	
+
+	/**
+	 * Instantiates a new Skill services.
+	 *
+	 * @param sd the sd
+	 */
 	@Autowired
 	public SkillServicesImpl(SkillDao sd) {
 		this.sd = sd;
